@@ -1,24 +1,29 @@
 #include "lists.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include <stdbool.h>
 
-bool isPalindromeUtil(listint_t **left, listint_t *right)
+int isPalindromeUtil(listint_t **left, listint_t *right)
 {
-    bool isp, isp1;
+    int isp, isp1;
 
     /* stop recursion when right becomes NULL */
     if (right == NULL)
-        return (true);
+        return (1);
  
     /* If sub-list is not palindrome then no need to
     check for current left and right, return false */
-    isp = isPalindromeUtil(left, right->next);
-    if (isp == false)
-        return (false);
+    if (isPalindromeUtil(left, right->next))
+        isp = 1;
+    else
+        isp = 0;
+    if (!isp)
+        return (0);
  
     /* Check values at current left and right */
-    isp1 = (right->n == (*left)->n);
+    if (right->n == (*left)->n)
+        isp1 = 1;
+    else
+        isp1 = 0;
  
     /* Move left to next node */
     *left = (*left)->next;
@@ -31,9 +36,6 @@ int is_palindrome(listint_t **head)
 {
     int check;
 
-    if (isPalindromeUtil(head, *head))
-        check = 1;
-    else
-        check = 0;
+    check = isPalindromeUtil(head, *head);
     return (check);
 }
