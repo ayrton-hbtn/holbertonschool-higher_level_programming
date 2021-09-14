@@ -5,7 +5,7 @@
 int is_palindrome(listint_t **head)
 {
     listint_t *tmp = NULL;
-    int i = 0, j = 0, arr[100];
+    int i = 0, j = 0, arr[999];
 
     if (!*head)
         return (1);
