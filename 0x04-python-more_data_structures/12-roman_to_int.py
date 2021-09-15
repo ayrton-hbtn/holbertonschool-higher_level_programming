@@ -13,5 +13,7 @@ def roman_to_int(roman_string):
             }
     res = 0
     for letter in roman_string:
+        if letter not in roman_values.keys():
+            return 0
         res += roman_values.get(letter, 0)
     return res
