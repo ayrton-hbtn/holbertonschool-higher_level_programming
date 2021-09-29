@@ -5,14 +5,14 @@
 class Node:
     ''' Node initializer '''
     def __init__(self, data, next_node=None):
-        self.data = data
-        self.next_node = next_node
 
-        if type(data) is not int:
+        if isinstance(data, int):
+            self.data = data
+        else:
             raise TypeError("data must be an integer")
-        if next_node is None:
-            pass
-        elif not isinstance(next_node, Node):
+        if isinstance(next_node, Node) or next_node is None:
+            self.next_node = next_node
+        else:
             raise TypeError("next_node must be a Node object")
 
     ''' data getter '''
@@ -23,7 +23,10 @@ class Node:
     ''' data setter to private '''
     @data.setter
     def data(self, value):
-        self.__data = value
+        if isinstance(value, int):
+            self.__data = value
+        else:
+            raise TypeError("data must be an integer")
 
     ''' next_node getter '''
     @property
@@ -33,7 +36,10 @@ class Node:
     ''' next_node setter to private '''
     @next_node.setter
     def next_node(self, value):
-        self.__next_node = value
+        if isinstance(value, Node) or value is None:
+            self.__next_node = value
+        else:
+            raise TypeError("next_node must be a Node object")
 
 ''' class SinglyLinkedList '''
 
