@@ -5,7 +5,7 @@
 
 
 class Rectangle:
-    number_of_instances = 0
+    Rectangle.number_of_instances = 0
     '''Constructor method with width and height
     '''
     def __init__(self, width=0, height=0):
