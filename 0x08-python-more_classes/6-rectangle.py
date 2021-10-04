@@ -5,6 +5,7 @@
 
 
 class Rectangle:
+    number_of_instances = 0
     '''Constructor method with width and height
     '''
     def __init__(self, width=0, height=0):
@@ -18,6 +19,7 @@ class Rectangle:
         if height < 0:
             raise ValueError("height must be >= 0")
         self.__height = height
+        Rectangle.number_of_instances += 1
 
     ''' width getter '''
     @property
@@ -56,3 +58,25 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return 0
         return (self.__width * 2) + (self.__height * 2)
+
+    ''' make object readable and printable,
+        generates output for user
+    '''
+    def __str__(self):
+        p = ''
+        if self.__width == 0 or self.__height == 0:
+            return p
+        for line in range(self.__height):
+            for col in range(self.__width):
+                p += '#'
+            p += '\n'
+        return p[:-1]
+
+    ''' makes object readable for developers '''
+    def __repr__(self):
+        return 'Rectangle(%s, %s)' % (self.__width, self.__height)
+
+    ''' deletes object and prints a message '''
+    def __del__(self):
+        Rectangle.number_of_instances -= 1
+        print("Bye rectangle...")

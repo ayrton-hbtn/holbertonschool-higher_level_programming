@@ -56,3 +56,24 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return 0
         return (self.__width * 2) + (self.__height * 2)
+
+    ''' make object readable and printable,
+        generates output for user
+    '''
+    def __str__(self):
+        p = ''
+        if self.__width == 0 or self.__height == 0:
+            return p
+        for line in range(self.__height):
+            for col in range(self.__width):
+                p += '#'
+            p += '\n'
+        return p[:-1]
+
+    ''' makes object readable for developers '''
+    def __repr__(self):
+        return 'Rectangle(%s, %s)' % (self.__width, self.__height)
+
+    ''' deletes object and prints a message '''
+    def __del__(self):
+        print("Bye rectangle...")

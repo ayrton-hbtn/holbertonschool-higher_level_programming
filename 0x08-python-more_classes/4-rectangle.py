@@ -53,6 +53,8 @@ class Rectangle:
 
     ''' calculates perimeter of rectangle object '''
     def perimeter(self):
+        if self.__width == 0 or self.__height == 0:
+            return 0
         return (self.__width * 2) + (self.__height * 2)
 
     ''' make object readable and printable,
@@ -60,6 +62,8 @@ class Rectangle:
     '''
     def __str__(self):
         p = ''
+        if self.__width == 0 or self.__height == 0:
+            return p
         for line in range(self.__height):
             for col in range(self.__width):
                 p += '#'
