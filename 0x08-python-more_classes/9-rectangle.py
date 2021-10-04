@@ -5,9 +5,12 @@
 
 
 class Rectangle:
-    Rectangle.number_of_instances = 0
     '''Constructor method with width and height
     '''
+
+    number_of_instances = 0
+    print_symbol = '#'
+
     def __init__(self, width=0, height=0):
         if not isinstance(width, int):
             raise TypeError("width must be an integer")
@@ -19,7 +22,6 @@ class Rectangle:
         if height < 0:
             raise ValueError("height must be >= 0")
         self.__height = height
-        self.print_symbol = '#'
         Rectangle.number_of_instances += 1
 
     ''' width getter '''
@@ -96,8 +98,6 @@ class Rectangle:
         else:
             return rect_2
 
-    ''' square class method returns sized square
-    '''
     @classmethod
     def square(cls, size=0):
         return cls(size, size)
