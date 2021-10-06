@@ -21,6 +21,18 @@
 >>> print(add_integer(False))
 98
 
+>>> print(add_integer(1.7976931348623157e+309))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 6, in add_integer
+OverflowError: cannot convert float infinity to integer
+
+>>> print(add_integer(float("NaN")))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "<stdin>", line 6, in add_integer
+ValueError: cannot convert float NaN to integer
+
 >>> add_integer(4, "School")
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
