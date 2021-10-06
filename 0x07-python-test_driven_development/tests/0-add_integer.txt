@@ -15,6 +15,12 @@
 >>> add_integer(100.3, -2)
 98
 
+>>> print(add_integer(True))
+99
+
+>>> print(add_integer(False))
+98
+
 >>> add_integer(4, "School")
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
