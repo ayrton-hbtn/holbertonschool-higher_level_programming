@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+'''
+    Takes one string argument, optionally two
+'''
+
 
 def say_my_name(first_name, last_name=""):
     '''prints the text "my name is"
