@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+'''
+    Add two numbers, int or float
+'''
 
 
 def add_integer(a, b=98):
