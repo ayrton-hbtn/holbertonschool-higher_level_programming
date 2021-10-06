@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+'''
+    Takes a matrix of int and a value
+'''
+
 
 def matrix_divided(matrix, div):
     '''Divides all elements of a matrix,
