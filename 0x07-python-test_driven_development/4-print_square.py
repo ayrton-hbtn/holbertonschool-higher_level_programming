@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+'''
+    Takes one parameter of type int
+'''
+
 
 def print_square(size):
     '''Prints a sized square of '#',

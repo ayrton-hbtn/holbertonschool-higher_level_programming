@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+'''
+    Takes one parameter of type string
+'''
+
 
 def text_indentation(text):
     ''' Prints text with 2 new lines after each
