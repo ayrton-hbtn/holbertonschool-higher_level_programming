@@ -12,6 +12,12 @@ class TestMaxInteger(unittest.TestCase):
     def test_none(self):
         self.assertEqual(max_integer([]), None)
 
+    def test_uniq(self):
+        self.assertEqual(max_integer([1]), 1)
+
+    def test_middle(self):
+        self.assertEqual(max_integer([1, 2, 1]), 2)
+
     def test_type(self):
         with self.assertRaises(TypeError):
             max_integer([1, 2, -100, "Hello"])
@@ -22,7 +28,3 @@ class TestMaxInteger(unittest.TestCase):
     def test_var_name(self):
         with self.assertRaises(NameError):
             max_integer([a, b])
-
-    def test_dictionary(self):
-        with self.assertRaises(KeyError):
-            max_integer({'a': 2})
