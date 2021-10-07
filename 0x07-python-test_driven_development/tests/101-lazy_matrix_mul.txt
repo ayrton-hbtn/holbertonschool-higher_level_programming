@@ -10,6 +10,8 @@ Import module:
 
 Test cases:
 -----------
+>>> lazy_matrix_mul([[1, 2]], [[1, 1], [2, 1]]))
+[[5 3]]
 
 >>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
 array([[ 7, 10],
