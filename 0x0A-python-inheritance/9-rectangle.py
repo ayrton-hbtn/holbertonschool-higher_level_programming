@@ -18,10 +18,13 @@ class BaseGeometry:
             raise ValueError("{} must be greater than 0".format(name))
         return value
 
+
 '''
     Rectangle class, inherits from
     BaseGeometry
 '''
+
+
 class Rectangle(BaseGeometry):
     '''
     Constructor with width & height
