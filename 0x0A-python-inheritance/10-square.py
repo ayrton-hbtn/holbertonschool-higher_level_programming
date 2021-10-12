@@ -13,7 +13,5 @@ class Square(Rectangle):
     Constructor with size
     '''
     def __init__(self, size):
-        super().__init__(size, size)
-
-    def area(self):
-        return super().area()
+        self.__size = super().integer_validator("size", size)
+        super().__init__(self.__size, self.__size)
