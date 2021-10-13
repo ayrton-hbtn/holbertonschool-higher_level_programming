@@ -13,8 +13,8 @@ class Rectangle(BaseGeometry):
     Constructor with width & height
     '''
     def __init__(self, width, height):
-        self.__width = super().integer_validator("width", width)
-        self.__height = super().integer_validator("height", height)
+        self.__width = self.integer_validator("width", width)
+        self.__height = self.integer_validator("height", height)
 
     def area(self):
         return (self.__width * self.__height)
