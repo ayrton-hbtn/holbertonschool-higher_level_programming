@@ -5,13 +5,9 @@ structures for JSON
 '''
 
 
-import json
-
-
 def class_to_json(obj):
     '''
-    Returns JSON serialization of
-    object as dictionary
+    Returns dictionary obj
+    for JSON serialization
     '''
-    s = json.dumps(obj.__dict__)
-    return json.loads(s)
+    return obj.__dict__
