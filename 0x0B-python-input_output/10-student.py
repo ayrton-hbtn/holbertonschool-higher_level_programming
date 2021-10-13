@@ -15,7 +15,7 @@ class Student:
         self.age = age
 
     def to_json(self, attrs=None):
-        if attrs:
+        if type(attrs) is list:
             d = {}
             for i in attrs:
                 try:
