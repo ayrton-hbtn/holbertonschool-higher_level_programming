@@ -12,7 +12,7 @@ def pascal_triangle(n):
     prev = []
     current = 0
     if n <= 0:
-        return triangle
+        return prev
     while n >= 2:
         prev = triangle[current]
         row = [1]
