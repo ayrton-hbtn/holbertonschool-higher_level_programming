@@ -124,8 +124,8 @@ class Rectangle(Base):
         return p
 
     '''
-    Assigns an argument to each attribute of instance
-    no-keyword arguments
+    Update instance attributes using args and kwargs
+    (no-keyword vs keyword arguments)
     '''
     def update(self, *args, **kwargs):
         if args is not None and len(args) > 0:
@@ -135,7 +135,7 @@ class Rectangle(Base):
                 self.__height = args[2]
                 self.__x = args[3]
                 self.__y = args[4]
-            except:
+            except Exception:
                 pass
         else:
             for attr, val in kwargs.items():
@@ -150,4 +150,4 @@ class Rectangle(Base):
                 elif attr == "id":
                     self.id = val
                 else:
-                    raise KeyError(f"{attr} is not an attribute of {type(self).__name__}")
+                    raise KeyError(f"{attr}: attribute not found")
