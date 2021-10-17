@@ -68,7 +68,6 @@ class Base:
     @classmethod
     def load_from_file(cls):
         filename = cls.__name__ + ".json"
-        s = ""
         try:
             with open(filename, "r") as f:
                 list_dict = cls.from_json_string(f.read())
