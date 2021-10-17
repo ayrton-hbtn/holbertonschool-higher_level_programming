@@ -24,6 +24,7 @@ class Base:
     '''
     Returns the JSON string representation of list_dictionaries
     '''
+    @staticmethod
     def to_json_string(list_dictionaries):
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
@@ -38,3 +39,10 @@ class Base:
         list_dict = [element.to_dictionary() for element in list_objs]
         with open(filename, "w") as f:
             f.write(cls.to_json_string(list_dict))
+
+    '''
+    Returns the list of the JSON string representation json_string
+    '''
+    @staticmethod
+    def from_json_string(json_string):
+        return json.loads(json_string)
