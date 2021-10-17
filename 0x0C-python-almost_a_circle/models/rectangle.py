@@ -151,3 +151,15 @@ class Rectangle(Base):
                     self.id = val
                 else:
                     raise KeyError(f"{attr}: attribute not found")
+
+    '''
+    Returns the dictionary representation of a Rectangle
+    '''
+    def to_dictionary(self):
+        obj = {}
+        obj['x'] = self.__x
+        obj['y'] = self.__y
+        obj['id'] = self.id
+        obj['height'] = self.__height
+        obj['width'] = self.__width
+        return obj
