@@ -15,10 +15,10 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
+        Base.__nb_objects += 1
         if id is not None:
             self.id = id
         else:
-            Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
     '''
@@ -36,9 +36,10 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         filename = cls.__name__ + ".json"
-        list_dict = [element.to_dictionary() for element in list_objs]
+        if list_objs is not None:
+            list_objs = [element.to_dictionary() for element in list_objs]
         with open(filename, "w") as f:
-            f.write(cls.to_json_string(list_dict))
+            f.write(cls.to_json_string(list_objs))
 
     '''
     Returns the list of the JSON string representation json_string
@@ -58,3 +59,19 @@ class Base:
             dup = cls(1)
         dup.update(**dictionary)
         return dup
+
+    '''
+    Returns a list of instances
+    '''
+    @classmethod
+    def load_from_file(cls):
+        filename = cls.__name__ + ".json"
+        s = ""
+        with open(filename, "r") as f:
+            for line in f:
+                s += line
+        list_dict = cls.from_json_string(s)
+        list_inst = []
+        for d in list_dict:
+            list_inst.append(cls.create(**d))
+        return list_inst
