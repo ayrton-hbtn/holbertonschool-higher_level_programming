@@ -15,10 +15,10 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
-        Base.__nb_objects += 1
         if id is not None:
             self.id = id
         else:
+            Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
     '''
@@ -46,6 +46,8 @@ class Base:
     '''
     @staticmethod
     def from_json_string(json_string):
+        if json_string is None or json_string == "":
+            return []
         return json.loads(json_string)
 
     '''
@@ -67,11 +69,12 @@ class Base:
     def load_from_file(cls):
         filename = cls.__name__ + ".json"
         s = ""
-        with open(filename, "r") as f:
-            for line in f:
-                s += line
-        list_dict = cls.from_json_string(s)
-        list_inst = []
-        for d in list_dict:
-            list_inst.append(cls.create(**d))
-        return list_inst
+        try:
+            with open(filename, "r") as f:
+                list_dict = cls.from_json_string(f.read())
+            list_inst = []
+            for d in list_dict:
+                list_inst.append(cls.create(**d))
+            return list_inst
+        except FileNotFoundError:
+            return []
