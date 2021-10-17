@@ -62,3 +62,14 @@ class Square(Rectangle):
                     self.id = val
                 else:
                     raise KeyError(f"{attr}: attribute not found")
+
+    '''
+    Returns the dictionary representation of a Square
+    '''
+    def to_dictionary(self):
+        obj = {}
+        obj['id'] = self.id
+        obj['x'] = self.x
+        obj['size'] = self.width
+        obj['y'] = self.y
+        return obj
