@@ -63,4 +63,4 @@ class Square(Rectangle):
         obj['size'] = self.width
         obj['x'] = self.x
         obj['y'] = self.y
-        return obj
+        return (obj)
