@@ -128,29 +128,19 @@ class Rectangle(Base):
     (no-keyword vs keyword arguments)
     '''
     def update(self, *args, **kwargs):
-        if args is not None and len(args) > 0:
-            try:
-                self.id = args[0]
-                self.__width = args[1]
-                self.__height = args[2]
-                self.__x = args[3]
-                self.__y = args[4]
-            except Exception:
-                pass
-        else:
-            for attr, val in kwargs.items():
-                if attr == "width":
-                    self.__width = val
-                elif attr == "height":
-                    self.__height = val
-                elif attr == "x":
-                    self.__x = val
-                elif attr == "y":
-                    self.__y = val
-                elif attr == "id":
-                    self.id = val
-                else:
-                    raise KeyError(f"{attr}: attribute not found")
+        l = len(args)
+        if l > 0:
+            setattr(self, "id", args[0])
+        if l > 1:
+            setattr(self, "width", args[1])
+        if l > 2:
+            setattr(self, "height", args[2])
+        if l > 3:
+            setattr(self, "x", args[3])
+        if l > 4:
+            setattr(self, "y", args[4])
+        for key, val in kwargs.items():
+            setattr(self, key, val)
 
     '''
     Returns the dictionary representation of a Rectangle

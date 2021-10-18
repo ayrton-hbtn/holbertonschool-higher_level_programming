@@ -9,7 +9,7 @@ from models.rectangle import Rectangle
 
 class Square(Rectangle):
     '''
-    Constructor with private attributes size, x & y,
+    Constructor with private attributes size, x & y.
     id assigned with same logic as parent class
     '''
     def __init__(self, size, x=0, y=0, id=None):
@@ -35,33 +35,25 @@ class Square(Rectangle):
     '''
     def __str__(self):
         p = f"[{type(self).__name__}] ({self.id}) "
-        p += f"{self.x}/{self.y} - {self.width}"
+        p += f"{self.x}/{self.y} - {self.size}"
         return p
 
     '''
     Update instance attributes using args and kwargs
     '''
     def update(self, *args, **kwargs):
-        if args is not None and len(args) > 0:
-            try:
-                self.id = args[0]
-                self.width = args[1]
-                self.x = args[2]
-                self.y = args[3]
-            except Exception:
-                pass
-        else:
-            for attr, val in kwargs.items():
-                if attr == "size":
-                    self.width = val
-                elif attr == "x":
-                    self.x = val
-                elif attr == "y":
-                    self.y = val
-                elif attr == "id":
-                    self.id = val
-                else:
-                    raise KeyError(f"{attr}: attribute not found")
+        l = len(args)
+        if l > 0:
+            setattr(self, "id", args[0])
+        if l > 1:
+            setattr(self, "size", args[1])
+        if l > 2:
+            setattr(self, "x", args[2])
+        if l > 3:
+            setattr(self, "y", args[3])
+        for key, val in kwargs.items():
+            setattr(self, key, val)
+
 
     '''
     Returns the dictionary representation of a Square
@@ -69,7 +61,7 @@ class Square(Rectangle):
     def to_dictionary(self):
         obj = {}
         obj['id'] = self.id
-        obj['x'] = self.x
         obj['size'] = self.width
+        obj['x'] = self.x
         obj['y'] = self.y
         return obj
