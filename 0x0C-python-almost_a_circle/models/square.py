@@ -42,18 +42,17 @@ class Square(Rectangle):
     Update instance attributes using args and kwargs
     '''
     def update(self, *args, **kwargs):
-        l = len(args)
-        if l > 0:
+        li = len(args)
+        if li > 0:
             setattr(self, "id", args[0])
-        if l > 1:
+        if li > 1:
             setattr(self, "size", args[1])
-        if l > 2:
+        if li > 2:
             setattr(self, "x", args[2])
-        if l > 3:
+        if li > 3:
             setattr(self, "y", args[3])
         for key, val in kwargs.items():
             setattr(self, key, val)
-
 
     '''
     Returns the dictionary representation of a Square

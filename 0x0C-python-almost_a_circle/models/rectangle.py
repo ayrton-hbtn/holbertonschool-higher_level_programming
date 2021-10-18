@@ -128,16 +128,16 @@ class Rectangle(Base):
     (no-keyword vs keyword arguments)
     '''
     def update(self, *args, **kwargs):
-        l = len(args)
-        if l > 0:
+        li = len(args)
+        if li > 0:
             setattr(self, "id", args[0])
-        if l > 1:
+        if li > 1:
             setattr(self, "width", args[1])
-        if l > 2:
+        if li > 2:
             setattr(self, "height", args[2])
-        if l > 3:
+        if li > 3:
             setattr(self, "x", args[3])
-        if l > 4:
+        if li > 4:
             setattr(self, "y", args[4])
         for key, val in kwargs.items():
             setattr(self, key, val)
