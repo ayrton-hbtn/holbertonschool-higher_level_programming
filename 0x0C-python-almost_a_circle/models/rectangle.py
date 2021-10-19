@@ -90,7 +90,7 @@ class Rectangle(Base):
     def y(self, value):
         if type(value) is not int:
             raise TypeError("y must be an integer")
-        if value <= 0:
+        if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
 
@@ -147,9 +147,9 @@ class Rectangle(Base):
     '''
     def to_dictionary(self):
         obj = {}
+        obj['id'] = self.id
+        obj['width'] = self.__width
+        obj['height'] = self.height
         obj['x'] = self.__x
         obj['y'] = self.__y
-        obj['id'] = self.id
-        obj['height'] = self.__height
-        obj['width'] = self.__width
         return obj

@@ -57,7 +57,7 @@ class Base:
     def create(cls, **dictionary):
         if cls.__name__ == "Rectangle":
             dup = cls(1, 1)
-        elif cls.__name__ == "Square":
+        if cls.__name__ == "Square":
             dup = cls(1)
         dup.update(**dictionary)
         return dup
