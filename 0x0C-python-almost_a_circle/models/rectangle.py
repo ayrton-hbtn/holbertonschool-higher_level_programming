@@ -41,26 +41,35 @@ class Rectangle(Base):
         super().__init__(self.id)
 
     '''
-    Getter for each attribute
+    width getter
     '''
     @property
     def width(self):
         return self.__width
 
+    '''
+    height getter
+    '''
     @property
     def height(self):
         return self.__height
 
+    '''
+    x getter
+    '''
     @property
     def x(self):
         return self.__x
 
+    '''
+    y getter
+    '''
     @property
     def y(self):
         return self.__y
 
     '''
-    Setter for each attribute
+    width setter
     '''
     @width.setter
     def width(self, value):
@@ -70,6 +79,9 @@ class Rectangle(Base):
             raise ValueError("width must be > 0")
         self.__width = value
 
+    '''
+    height setter
+    '''
     @height.setter
     def height(self, value):
         if type(value) is not int:
@@ -78,6 +90,9 @@ class Rectangle(Base):
             raise ValueError("height must be > 0")
         self.__height = value
 
+    '''
+    x setter
+    '''
     @x.setter
     def x(self, value):
         if type(value) is not int:
@@ -86,6 +101,9 @@ class Rectangle(Base):
             raise ValueError("x must be >= 0")
         self.__x = value
 
+    '''
+    y setter
+    '''
     @y.setter
     def y(self, value):
         if type(value) is not int:
