@@ -7,7 +7,6 @@ import sys
 
 argv = sys.argv
 engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(argv[1], argv[2], argv[3]), pool_pre_ping=True)
-session = Session(engine)
 Base = declarative_base()
 class State(Base):
     __tablename__ = 'states'
