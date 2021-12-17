@@ -11,6 +11,9 @@ if __name__ == "__main__":
     i = len(query_rows)
     for j in range(i - 1):
         print(f"{query_rows[j][0]}, ", end="")
-    print(f"{query_rows[j + 1][0]}")
+    if (i != 0):
+        print(f"{query_rows[j + 1][0]}")
+    else:
+        print()
     cur.close()
     server.close()
