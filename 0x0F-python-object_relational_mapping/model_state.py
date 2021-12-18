@@ -2,18 +2,14 @@
 """ contains the class definition of a State """
 
 
-from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, String, Integer
-import sys
 
-argv = sys.argv
-engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
-                        argv[1], argv[2], argv[3]), pool_pre_ping=True)
 Base = declarative_base()
 
 
 class State(Base):
+    """ class State """
     __tablename__ = 'states'
 
     id = Column(Integer, primary_key=True)
