@@ -8,9 +8,12 @@ from sqlalchemy import create_engine, asc
 
 if __name__ == "__main__":
     argv = sys.argv
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(argv[1], argv[2], argv[3]), pool_pre_ping=True)
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
+                            argv[1], argv[2], argv[3]), pool_pre_ping=True)
     Base.metadata.create_all(engine)
     session = Session(engine)
-    for state, city in session.query(State, City).filter(State.id == City.state_id).order_by(asc(City.id)).all():
-        print("{}: ({}) {}".format(state.name, city.id, city.name))
+    sc = session.query(State, City).filter(State.id == City.state_id)\
+                .order_by(asc(City.id)).all()
+    for i in sc:
+        print("{}: ({}) {}".format(i.State.name, i.City.id, i.City.name))
     session.close()
