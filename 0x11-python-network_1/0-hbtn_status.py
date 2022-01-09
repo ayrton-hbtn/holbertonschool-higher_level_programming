@@ -2,6 +2,7 @@
 """ fetches a url and return it's status """
 import urllib.request as r
 
+
 if __name__ == "__main__":
     with r.urlopen('https://intranet.hbtn.io/status') as res:
         print("Body response:")
