@@ -1,12 +1,16 @@
 #!/usr/bin/python3
-""" fetches a url and return it's status """
-import urllib.request as r
+"""
+    0-hbtn_status.py
+    module
+    return: nothing
+"""
+import urllib.request
 
 
 if __name__ == "__main__":
-    with r.urlopen('https://intranet.hbtn.io/status') as res:
+    with urllib.request.urlopen('https://intranet.hbtn.io/status') as response:
+        html = response.read()
         print("Body response:")
-        content = res.read()
-        print(f"\t- type: {type(content)}")
-        print(f"\t- content: {content}")
-        print(f"\t- utf8 content: {content.decode('utf-8')}")
+        print("\t- type: {}".format(type(html)))
+        print("\t- content: {}".format(html))
+        print("\t- utf8 content: {}".format(html.decode("utf-8")))
