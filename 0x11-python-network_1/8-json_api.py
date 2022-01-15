@@ -1,22 +1,23 @@
 #!/usr/bin/python3
-"""that takes in a letter and sends a POST request
-to link in argument
 """
-import requests as r
-from sys import argv
+    0-hbtn_status.py
+    module
+    return: nothing
+"""
+import requests
+import sys
 
 
 if __name__ == "__main__":
-    url = "http://0.0.0.0:5000/search_user"
-    letter = {}
-    if len(argv) > 1:
-        letter["q"] = argv[1]
-    res = r.post(url, data=letter)
+    data = {"q": ""}
+    if len(sys.argv) > 1:
+        data["q"] = sys.argv[1]
+    r = requests.post("http://0.0.0.0:5000/search_user", data=data)
     try:
-        d = res.json()
-        if "id" not in d.get('id') or "name" not in d.get('name'):
+        d = r.json()
+        if "id" not in d.keys() or "name" not in d.keys():
             print("No result")
         else:
-            print("[{}] {}".format(d.get('id'), d.get('name')))
+            print("[{}] {}".format(d.get("id"), d.get("name")))
     except ValueError:
         print("Not a valid JSON")
