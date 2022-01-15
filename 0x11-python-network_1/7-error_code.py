@@ -1,14 +1,15 @@
 #!/usr/bin/python3
-""" sends a request to the URL and displays the body of the response """
+""" Python script
+"""
 
 
-import requests as r
-from sys import argv
+import sys
+import requests
 
 
 if __name__ == "__main__":
-    url = r.get(argv[1])
-    if res.status_code >= 400:
-        print(f"Error code:{res.status_code}")
+    url_req = requests.get(sys.argv[1])
+    if url_req.status_code >= 400:
+        print("Error code: {}".format(url_req.status_code))
     else:
-        print(url.request.text)
+        print(url_req.text)
