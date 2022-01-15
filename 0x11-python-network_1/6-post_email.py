@@ -12,5 +12,5 @@ import requests as r
 if __name__ == "__main__":
     email = argv[2]
     data = {'email': email}
-    res = r.post(argv[1], data=data.encode('utf-8'))
-    print(res.request.body)
+    res = r.post(argv[1], data=data)
+    print(res.request.text)
