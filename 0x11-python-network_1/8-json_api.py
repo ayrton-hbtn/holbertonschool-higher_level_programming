@@ -7,15 +7,16 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    data = {"q": ""}
+    url = "http://0.0.0.0:5000/search_user"
+    data = {}
     if len(argv) > 1:
         data["q"] = argv[1]
-    r = requests.post("http://0.0.0.0:5000/search_user", data=data)
+    res = r.post(url, data=data)
     try:
-        d = r.json()
-        if "id" not in d.keys() or "name" not in d.keys():
+        d = res.json()
+        if "id" not in d.get('id') or "name" not in d.get('name'):
             print("No result")
         else:
-            print("[{}] {}".format(d.get("id"), d.get("name")))
+            print("[{}] {}".format(d.get('id'), d.get('name')))
     except ValueError:
         print("Not a valid JSON")
