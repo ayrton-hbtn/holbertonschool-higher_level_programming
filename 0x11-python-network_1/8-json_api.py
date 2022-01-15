@@ -8,10 +8,10 @@ from sys import argv
 
 if __name__ == "__main__":
     url = "http://0.0.0.0:5000/search_user"
-    data = {}
+    letter = {}
     if len(argv) > 1:
-        data["q"] = argv[1]
-    res = r.post(url, data=data)
+        letter["q"] = argv[1]
+    res = r.post(url, data=letter)
     try:
         d = res.json()
         if "id" not in d.get('id') or "name" not in d.get('name'):
