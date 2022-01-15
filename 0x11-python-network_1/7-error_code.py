@@ -1,7 +1,10 @@
 #!/usr/bin/python3
-""" hola """
+""" sends a request to the URL and displays the body of the response """
+
+
 import requests as r
 from sys import argv
+
 
 if __name__ == "__main__":
     url = r.get(argv[1])
