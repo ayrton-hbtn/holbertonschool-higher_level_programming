@@ -10,15 +10,11 @@ request(argv[2], (err, res, body) => {
   const todos = JSON.parse(body);
   const employeeTasks = {};
   for (const todo of todos) {
-    if (employeeTasks[todo.userId]) {
-      if (todo.completed) {
+    if (todo.completed) {
+      if (employeeTasks[todo.userId]) {
         employeeTasks[todo.userId] += 1;
-      }
-    } else {
-      if (todo.completed) {
-        employeeTasks[todo.userId] = 1;
       } else {
-        employeeTasks[todo.userId] = 0;
+        employeeTasks[todo.userId] = 1;
       }
     }
   }
